@@ -2,3 +2,9 @@
     margin-top: 80px;
     display: none!important;
 }
+
+.swiper-container-wp8-horizontal, .swiper-container-wp8-horizontal>.swiper-wrapper {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    display: none!important;
+}

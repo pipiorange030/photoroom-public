@@ -1,11 +1,11 @@
-// 脚本名称: Hide Dynamic Banner on manwasa.cc
+// 脚本名称: Hide Shadow DOM Banner on manwasa.cc
 // 匹配规则: ^https?://manwasa\.cc
 
-// 等待页面加载完成
-window.addEventListener('load', function() {
-    // 检查元素是否存在
-    const banner = document.querySelector('.index-banner');
+// 查找 Shadow DOM 宿主元素
+const shadowHost = document.querySelector('shadow-host-selector');
+if (shadowHost && shadowHost.shadowRoot) {
+    const banner = shadowHost.shadowRoot.querySelector('.index-banner');
     if (banner) {
         banner.style.display = 'none';
     }
-});
+}

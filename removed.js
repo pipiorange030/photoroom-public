@@ -1,13 +1,11 @@
-const css = `
-/* 隐藏 ad-top-info 元素 */
-div.ad-top-info {
-    display: none !important;
-}
+// 脚本名称: Hide Dynamic Banner on manwasa.cc
+// 匹配规则: ^https?://manwasa\.cc
 
-/* 隐藏 two-ad-area 元素 */
-div.two-ad-area {
-    display: none !important;
-}
-`;
-
-$done({ body: $response.body.replace(/<\/head>/, `<style>${css}</style></head>`) });
+// 等待页面加载完成
+window.addEventListener('load', function() {
+    // 检查元素是否存在
+    const banner = document.querySelector('.index-banner');
+    if (banner) {
+        banner.style.display = 'none';
+    }
+});

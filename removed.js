@@ -1,11 +1,10 @@
-// 脚本名称: Hide Shadow DOM Banner on manwasa.cc
-// 匹配规则: ^https?://manwasa\.cc
+// 脚本名称: Remove Ads for Domestic Domain
 
-// 查找 Shadow DOM 宿主元素
-const shadowHost = document.querySelector('shadow-host-selector');
-if (shadowHost && shadowHost.shadowRoot) {
-    const banner = shadowHost.shadowRoot.querySelector('.index-banner');
-    if (banner) {
-        banner.style.display = 'none';
-    }
-}
+const removeAds = () => {
+    const adSelectors = ['.ad-area', '.index-banner', 'iframe[src*="ad"]'];
+    adSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(ad => ad.remove());
+    });
+};
+
+window.addEventListener('load', removeAds);
